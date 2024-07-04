@@ -9,6 +9,7 @@ from transformers import (
     TrainingArguments,
     Trainer,
 )
+from datasets import Dataset
 
 
 class ModelConfig:
@@ -59,7 +60,8 @@ class ModelConfig:
             save_total_limit (Optional[int]): Limit on the total number of checkpoints to save.
             save_steps (Optional[int]): Save checkpoint every X steps.
             eval_steps (Optional[int]): Evaluate every X steps.
-            load_best_model_at_end (Optional[bool]): Whether to load the best model at the end of training.
+            load_best_model_at_end (Optional[bool]): 
+                Whether to load the best model at the end of training.
             push_to_hub (Optional[bool]): Whether to push the model to the Hugging Face Hub.
         """
         self.base_model_path = base_model_path
@@ -150,7 +152,14 @@ class ModelConfig:
         )
         return training_args
 
-    def trainer_config(self, model, tokenizer, training_args, train_dataset, validation_dataset, data_collator) -> Trainer:
+    def trainer_config(
+        self,
+        model: AutoModelForQuestionAnswering,
+        tokenizer: PreTrainedTokenizerFast,
+        training_args: TrainingArguments,
+        train_dataset: Dataset,
+        validation_dataset: Dataset,
+        data_collator) -> Trainer:
         """
         Configures and returns a Trainer for the model.
 
