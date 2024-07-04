@@ -24,7 +24,7 @@ inference_router = APIRouter(
 async def select_model(
     option: Request,
     service: Service = Depends(get_inference_service)
-):
+) -> str:
     """
     Selects a question answering model for inference.
 
@@ -50,12 +50,12 @@ async def select_model(
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=str(e)) from e
-   
+
 @inference_router.post("/requestQA", status_code=status.HTTP_200_OK)
 async def inference_request(
     request_info: RequestQuestionContext,
     service: Service = Depends(get_inference_service)
-):
+) -> JSONResponse:
     """
     Performs question answering inference using the selected model.
 

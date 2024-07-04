@@ -1,17 +1,20 @@
 """
 This module is used for loading model
 """
+from typing import Any
 from transformers import (AutoTokenizer,
                           AutoModelForQuestionAnswering)
+
 
 class ModelLoader:
     """
     A class to handle loading of question answering models.
     """
+
     def __init__(self):
         print("Loading model")
 
-    async def path_config(self,path):
+    async def path_config(self, path: str = None) -> str:
         """
         Configure the model path based on input.
 
@@ -23,7 +26,7 @@ class ModelLoader:
         """
         return "src/models/"+path
 
-    async def load_tokenizer(self, path):
+    async def load_tokenizer(self, path: str = None) -> AutoTokenizer:
         """
         Load a tokenizer from a specified path.
 
@@ -40,7 +43,7 @@ class ModelLoader:
             print("already removed!!!")
         return tokenizer
 
-    async def load_model(self, path):
+    async def load_model(self, path: str = None) -> AutoModelForQuestionAnswering:
         """
         Load a model from a specified path.
 
@@ -53,7 +56,7 @@ class ModelLoader:
         model = AutoModelForQuestionAnswering.from_pretrained(path)
         return model
 
-    async def loading_question_answering_model(self, path):
+    async def loading_question_answering_model(self, path: str = None) -> Any:
         """
         Load both tokenizer and model for question answering.
 
