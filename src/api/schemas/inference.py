@@ -2,7 +2,6 @@
 This schemas is used for inference
 """
 from pydantic import BaseModel
-from typing import Optional
 
 
 class RequestQuestionContext(BaseModel):

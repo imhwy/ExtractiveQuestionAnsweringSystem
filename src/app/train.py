@@ -4,7 +4,7 @@ Main script to initialize and train a model using the provided service configura
 
 import argparse
 
-from services.training import Service
+from src.services.training import Training
 
 
 def main():
@@ -67,7 +67,7 @@ def main():
 
     args = parser.parse_args()
 
-    service = Service(
+    service = Training(
         args=args
     )
 

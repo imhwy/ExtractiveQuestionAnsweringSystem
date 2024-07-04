@@ -11,7 +11,7 @@ class InferenceEngine:
 
     def __init__(self):
         print("using InferenceEngine!!!")
-        
+
 
     async def load_input(self, tokenizer, context, question):
         """_summary_
@@ -77,7 +77,7 @@ class InferenceEngine:
         )
 
         return predict_answer
-    
+
     async def inference_pipeline(self, tokenizer, model, context, question):
         """
         Execute the inference pipeline for a question-answering task.

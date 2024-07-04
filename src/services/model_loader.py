@@ -10,7 +10,7 @@ class ModelLoader:
     """
     def __init__(self):
         print("Loading model")
-    
+
     async def path_config(self,path):
         """
         Configure the model path based on input.
@@ -22,7 +22,7 @@ class ModelLoader:
             str: The modified model path.
         """
         return "src/models/"+path
-    
+
     async def load_tokenizer(self, path):
         """
         Load a tokenizer from a specified path.
@@ -36,10 +36,10 @@ class ModelLoader:
         tokenizer = AutoTokenizer.from_pretrained(path)
         try:
             tokenizer.model_input_names.remove("token_type_ids")
-        except:
+        except ValueError:
             print("already removed!!!")
         return tokenizer
-    
+
     async def load_model(self, path):
         """
         Load a model from a specified path.
@@ -52,7 +52,7 @@ class ModelLoader:
         """
         model = AutoModelForQuestionAnswering.from_pretrained(path)
         return model
-    
+
     async def loading_question_answering_model(self, path):
         """
         Load both tokenizer and model for question answering.

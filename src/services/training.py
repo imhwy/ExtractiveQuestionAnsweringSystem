@@ -14,7 +14,6 @@ from transformers import (AutoModelForQuestionAnswering,
                           Trainer)
 
 from src.services.model import ModelConfig
-from src.services.inference import InferenceEngine
 from src.services.data_loader import DataLoader
 
 
@@ -51,10 +50,6 @@ class Training:
             fp16=args.fp16,
             logging_dir=args.logger,
             logging_steps=args.log_step
-        )
-        self.inference_engine = InferenceEngine(
-            context=None,
-            question=None
         )
         self.data_loader = DataLoader(
             file_path=args.database,

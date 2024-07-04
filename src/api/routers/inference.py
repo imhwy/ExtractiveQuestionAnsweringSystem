@@ -7,12 +7,13 @@ from fastapi import (status,
                      Request,
                      HTTPException)
 from fastapi.responses import JSONResponse
+
 from src.services.service import Service
 from src.api.dependencies.inference_dependencies import get_inference_service
 from src.api.schemas.inference import RequestQuestionContext
+from src.services.inference_state import InferenceState
 
-tokenizer = None
-model = None
+inference_state = InferenceState()
 
 inference_router = APIRouter(
     tags=["Inference"],
@@ -37,16 +38,19 @@ async def select_model(
     Raises:
         HTTPException: If there is an error loading the model.
     """
-    global tokenizer, model
     try:
         payload = await option.json()
         option = payload.get("category")
         print(f"the option is: {option}")
         tokenizer, model = await service.model.loading_question_answering_model(path=option)
+        inference_state.tokenizer = tokenizer
+        inference_state.model = model
         return f"Successfully selected model: {option}!!!"
     except Exception as e:
-        raise str(e)
-    
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(e)) from e
+   
 @inference_router.post("/requestQA", status_code=status.HTTP_200_OK)
 async def inference_request(
     request_info: RequestQuestionContext,
@@ -65,13 +69,16 @@ async def inference_request(
     Raises:
         HTTPException: If there is an error during inference.
     """
-    global tokenizer, model
-    if tokenizer is None or model is None:
-        return JSONResponse({"answer": "Please select a model first and wait a little bit for loading model!!!"})
+    if inference_state.tokenizer is None or inference_state.model is None:
+        return JSONResponse(
+            {
+                "answer": "Please select a model first and wait a little bit for loading model!!!"
+            }
+        )
     try:
         result = await service.inference.inference_pipeline(
-            tokenizer=tokenizer,
-            model=model,
+            tokenizer=inference_state.tokenizer,
+            model=inference_state.model,
             context=request_info.context,
             question=request_info.question
         )
