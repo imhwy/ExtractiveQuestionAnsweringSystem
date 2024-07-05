@@ -12,6 +12,8 @@ from src.services.service import Service
 from src.api.dependencies.inference_dependencies import get_inference_service
 from src.api.schemas.inference import RequestQuestionContext
 from src.services.inference_state import InferenceState
+from src.api.schemas.result import Result
+from src.utils.utility import create_new_id
 
 inference_state = InferenceState()
 
@@ -19,6 +21,7 @@ inference_router = APIRouter(
     tags=["Inference"],
     prefix="/inference",
 )
+
 
 @inference_router.post("/selectModel", status_code=status.HTTP_200_OK)
 async def select_model(
@@ -45,11 +48,13 @@ async def select_model(
         tokenizer, model = await service.model.loading_question_answering_model(path=option)
         inference_state.tokenizer = tokenizer
         inference_state.model = model
+        inference_state.option = option
         return f"Successfully selected model: {option}!!!"
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=str(e)) from e
+
 
 @inference_router.post("/requestQA", status_code=status.HTTP_200_OK)
 async def inference_request(
@@ -82,7 +87,19 @@ async def inference_request(
             context=request_info.context,
             question=request_info.question
         )
-        print(f"The result is: {result}")
+        result_id = create_new_id(prefix="result")
+        saved_result = Result(
+            Id=result_id,
+            model=inference_state.option,
+            question=request_info.question,
+            context=request_info.context,
+            answer=result
+        )
+        print(saved_result)
+        if await service.result_collection.add_new_result(result=saved_result):
+            print(f"The result is: {result}")
+        else:
+            print("Error saving result!!!")
         return JSONResponse({"answer": result})
     except Exception as e:
         raise HTTPException(

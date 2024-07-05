@@ -12,3 +12,4 @@ class InferenceState:
     def __init__(self):
         self.tokenizer: PreTrainedTokenizerFast = None
         self.model: AutoModelForQuestionAnswering = None
+        self.option: str = None
