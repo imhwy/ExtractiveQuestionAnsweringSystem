@@ -95,11 +95,8 @@ async def inference_request(
             context=request_info.context,
             answer=result
         )
-        print(saved_result)
-        if await service.result_collection.add_new_result(result=saved_result):
-            print(f"The result is: {result}")
-        else:
-            print("Error saving result!!!")
+        await service.result_collection.add_new_result(result=saved_result)
+        print(f"The result is: {result}")
         return JSONResponse({"answer": result})
     except Exception as e:
         raise HTTPException(
