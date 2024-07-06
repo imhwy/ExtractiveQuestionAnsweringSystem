@@ -1,6 +1,7 @@
 """
 This module defines FastAPI endpoints for inference operations.
 """
+import time
 from fastapi import (status,
                      Depends,
                      APIRouter,
@@ -81,6 +82,7 @@ async def inference_request(
             }
         )
     try:
+        start_time = time.time()
         result = await service.inference.inference_pipeline(
             tokenizer=inference_state.tokenizer,
             model=inference_state.model,
@@ -88,14 +90,18 @@ async def inference_request(
             question=request_info.question
         )
         result_id = create_new_id(prefix="result")
+        end_time = time.time()
+        inference_time = str(end_time - start_time) + "s"
         saved_result = Result(
             Id=result_id,
             model=inference_state.option,
             question=request_info.question,
             context=request_info.context,
-            answer=result
+            answer=result,
+            time=inference_time
         )
         await service.result_collection.add_new_result(result=saved_result)
+        print(f"Time: {inference_time}")
         print(f"The result is: {result}")
         return JSONResponse({"answer": result})
     except Exception as e:

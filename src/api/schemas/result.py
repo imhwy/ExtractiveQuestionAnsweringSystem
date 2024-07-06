@@ -13,6 +13,7 @@ class Result(BaseModel):
     question: str
     context: str
     answer: str
+    time: str
 
     def to_dict(self):
         """

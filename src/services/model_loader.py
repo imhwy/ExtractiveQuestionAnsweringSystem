@@ -4,7 +4,7 @@ This module is used for loading model
 from typing import Any
 from transformers import (AutoTokenizer,
                           AutoModelForQuestionAnswering)
-
+import torch
 
 class ModelLoader:
     """
@@ -12,6 +12,7 @@ class ModelLoader:
     """
 
     def __init__(self):
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         print("Loading model")
 
     async def path_config(self, path: str = None) -> str:
@@ -54,6 +55,7 @@ class ModelLoader:
             AutoModelForQuestionAnswering: The loaded model object.
         """
         model = AutoModelForQuestionAnswering.from_pretrained(path)
+        model.to(self.device)
         return model
 
     async def loading_question_answering_model(self, path: str = None) -> Any:

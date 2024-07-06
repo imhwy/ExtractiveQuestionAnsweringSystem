@@ -15,4 +15,3 @@ class CRUDResultCollection(CRUDDocuments):
         """
         CRUDDocuments.__init__(self)
         self.collection = CRUDDocuments.connection.db.result_collection
-        

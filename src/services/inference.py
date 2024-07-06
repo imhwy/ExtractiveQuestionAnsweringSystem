@@ -10,14 +10,22 @@ class InferenceEngine:
     """
 
     def __init__(self):
+        self.device = torch.device(
+            "cuda" if torch.cuda.is_available() else "cpu"
+        )
         print("using InferenceEngine!!!")
 
-
     async def load_input(self, tokenizer, context, question):
-        """_summary_
+        """
+        Tokenize the input context and question.
+
+        Args:
+            tokenizer: The tokenizer to preprocess the context and question.
+            context (str): The context in which the question needs to be answered.
+            question (str): The question for which the answer is sought.
 
         Returns:
-            _type_: _description_
+            dict: Tokenized input containing tensors.
         """
         inputs = tokenizer(
             question,
@@ -27,19 +35,32 @@ class InferenceEngine:
         return inputs
 
     async def load_output(self, model, inputs):
-        """_summary_
+        """
+        Generate model outputs from the tokenized inputs.
+
+        Args:
+            model: The model to generate predictions.
+            inputs (dict): The tokenized inputs.
 
         Returns:
+            dict: The model outputs.
         """
-
+        print(f"using gpu: {self.device}")
         with torch.no_grad():
+            model.to(self.device)
+            inputs = inputs.to(self.device)
             outputs = model(**inputs)
         return outputs
 
     async def get_answer_index(self, outputs):
-        """_summary_
+        """
+        Get the start and end indices of the predicted answer.
+
+        Args:
+            outputs (dict): The model outputs containing logits.
 
         Returns:
+            tuple: The start and end indices of the predicted answer.
         """
 
         answer_start_index = outputs.start_logits.argmax()
@@ -57,7 +78,8 @@ class InferenceEngine:
         Returns:
             _type_: _description_
         """
-        predict_answer_tokens = inputs.input_ids[0,answer_start_index: answer_end_index + 1]
+        predict_answer_tokens = inputs.input_ids[0,
+                                                 answer_start_index: answer_end_index + 1]
         return predict_answer_tokens
 
     async def decode_answer(self, tokenizer, predict_answer_tokens):
