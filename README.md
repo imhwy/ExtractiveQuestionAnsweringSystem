@@ -57,57 +57,59 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+The Question Answering (QA) problem is an important field in Natural Language Processing (NLP), focusing on building systems capable of automatically answering questions posed by humans in natural language. This problem combines many fields such as machine learning, linguistic analysis, and information extraction. With the advancements in deep learning, especially through transformer models like BERT or GPT, the accuracy and efficiency of QA systems have significantly improved. However, the Question Answering problem still faces several challenges. One of the primary challenges is the requirement for the QA system to understand the context of the question and the source document (question & context).
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+The architecture:
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+[![Architecture][archirecture-screenshot]](https://example.com)
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+For example, in the context sentence "Today the beach in Bình Định is very cool, the sunshine in Bình Định is very bright," and the question "Where is the sunshine very bright?" the QA system needs to understand that the answer is "Bình Định" from the second part of the context sentence, not the first occurrence of “Bình Định.”
 
-Use the `BLANK_README.md` to get started.
+Input:
+* Context: A sentence or a short paragraph in Vietnamese
+* Question: A Vietnamese question related to the content of the context.
+
+Output:
+* Answer: The start position and end position of the answer within the context from there get the answer
+
+Example:
+
+[![Example][product-screenshot]](https://example.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+* [![FastAPI][FastAPI.com]][FastAPI-url]
+* [![HuggingFace][HuggingFace.co]][HuggingFace-url]
+* [![PyTorch][PyTorch.org]][PyTorch-url]
+* [![MongoDB][MongoDB.com]][MongoDB-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
+* PyTorch-gpu
+  ```py
+  pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
   ```
+* MongoDB
+  ```
+  Install mongoDB
+  ```
+* Models
+  Model | #params | Max length
+  ---|---|---
+  [`PhucDanh/Bartpho-UITViSQuAD`](https://huggingface.co/PhucDanh/Bartpho-fine-tuning-model-for-question-answering) | 396M | 1024
+  [`PhucDanh/Bartpho-UITCourseInfo`](https://huggingface.co/PhucDanh/Bartpho-fine-tuning-on-UIT-Course-information) | 396M | 1024
+  [`PhucDanh/ViT5-UITViSQuAD`](https://huggingface.co/PhucDanh/vit5-fine-tuning-for-question-answering) | 226M | 768
+  [`PhucDanh/ViT5-UITCourseInfo`](https://huggingface.co/PhucDanh/ViT5-fine-tuning-on-UIT-Course-information) | 226M | 768
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 1. Get a free API Key at [https://example.com](https://example.com)
 2. Clone the repo
