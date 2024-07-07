@@ -28,7 +28,7 @@
 | 2 | Nguyễn Huỳnh Minh Triết | 21520497 |
 | 3 | Nguyễn Minh Thư | 21520472 |
 
-## Advanced Vietnamese Question Answering System for Specialized Domain Information.
+# Advanced Vietnamese Question Answering System for Specialized Domain Information.
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -74,7 +74,7 @@ Output:
 
 Example:
 
-[![Example][product-screenshot]](https://example.com)
+[![Example][example-screenshot]](https://example.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -101,6 +101,11 @@ Install the tools below
   [Anaconda](https://www.anaconda.com/)
 * **MongoDB**
   [MongoDB-url](https://www.mongodb.com/)
+* **Data**
+  Name | Data 
+  ---|---
+  UIT-ViSQuAD | [UIT-ViSQuAD](https://huggingface.co/datasets/taidng/UIT-ViQuAD2.0)
+  UIT-CourseInfo | [UIT-CourseInfo](https://huggingface.co/datasets/PhucDanh/UIT-CourseInfo)
 * **Models**
   Model | #params | Max length
   ---|---|---
@@ -111,7 +116,9 @@ Install the tools below
 * **Settings** <br>
   Install the fine-tuned models above and place in folder named *Models*
   Remember to rename the model name <br>
-  [![Rename][rename-screenshot]](https://example.com)
+  [![Rename Model][rename-model-screenshot]](https://example.com)
+  Install the dataset above and place in folder named *data*
+  [![Rename Dataset][rename-dataset-screenshot]](https://example.com)
 * **Create env**
   ```
   conda create --name QASystem python=3.10.14
@@ -131,7 +138,11 @@ Install the tools below
     ```sh
     pip install --upgrade pip
     ```
-3. Install requirements
+3. Pytorch-gpu
+   ```
+   pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+   ```
+4. Install requirements
    ```sh
    pip install -r requirements.txt
    ```
@@ -139,30 +150,49 @@ Install the tools below
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Fine-tuning
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+Access to 
+```ExtractiveQuestionAnsweringSystem/src/app/train```
+to start tuning<br>
+You can change the hyper-parameter as you want in train.py
+```py
+python train.py
+```
+
+### Start demo app
+
+Back to path
+```
+ExtractiveQuestionAnsweringSystem/
+```
+Run command line
+```py
+python main.py
+```
+Menu
+[![Menu][menu-screenshot]](https://example.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+- [x] Fine-tuning models
+- [X] Create dataset
+- [X] Evaluation
+- [x] Build backend
+- [x] Build frontend
+- [X] Build API
+- [X] Public on HuggingFace space
+- [ ] Add voting technique
+- [ ] Fine-tuning large version
+    - [ ] Bartpho
+    - [ ] ViT5
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -198,9 +228,14 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Project Link: [https://github.com/imhwy/ExtractiveQuestionAnsweringSystem.git](https://github.com/imhwy/ExtractiveQuestionAnsweringSystem.git)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Ngô Phúc Danh - [gmail](21521924@gm.uit.edu.vn) - 21521924@gm.uit.edu.vn
+
+Nguyễn Huỳnh Minh Triết - [gmail](21520497@gm.uit.edu.vn) - 21520497@gm.uit.edu.vn
+
+Nguyễn Minh Thư - [gmail](21520472@gm.uit.edu.vn) - 21520472@gm.uit.edu.vn
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -211,14 +246,12 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
 
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+* [mBart](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00343/96484/Multilingual-Denoising-Pre-training-for-Neural)
+* [Bartpho](https://arxiv.org/abs/2109.09701)
+* [T5](https://www.jmlr.org/papers/v21/20-074.html)
+* [ViT5](https://arxiv.org/abs/2205.06457)
+* [Transformer](https://proceedings.neurips.cc/paper/2017/hash/3f5ee243547dee91fbd053c1c4a845aa-Abstract.html)
+* [UIT-ViQuAD](https://arxiv.org/abs/2009.14725)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -226,32 +259,18 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[![FastAPI][FastAPI.com]][FastAPI-url]
+* [![HuggingFace][HuggingFace.co]][HuggingFace-url]
+* [![PyTorch][PyTorch.org]][PyTorch-url]
+* [![MongoDB][MongoDB.com]][MongoDB-url]
+
+[archirecture-screenshot]: public/architecture.png
+[example-screenshot]: public/example.png
+[FastAPI.com]: https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi
+[FastAPI-url]: [https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi](https://fastapi.tiangolo.com/)
+[HuggingFace.co]: https://img.shields.io/badge/Hugging%20Face-FFD21E?logo=huggingface&logoColor=000
+[HuggingFace-url]: https://huggingface.co/
+[PyTorch.org]: https://img.shields.io/badge/-PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white
+[PyTorch-url]: https://pytorch.org/
+[MongoDB.com]: https://img.shields.io/badge/-MongoDB-13aa52?style=for-the-badge&logo=mongodb&logoColor=white
+[MongoDB-url]: https://www.mongodb.com/
