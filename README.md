@@ -61,7 +61,7 @@ The Question Answering (QA) problem is an important field in Natural Language Pr
 
 The architecture:
 
-[![Architecture][archirecture-screenshot]](https://example.com)
+![Architecture](public/architecture.png)
 
 For example, in the context sentence "Today the beach in Bình Định is very cool, the sunshine in Bình Định is very bright," and the question "Where is the sunshine very bright?" the QA system needs to understand that the answer is "Bình Định" from the second part of the context sentence, not the first occurrence of “Bình Định.”
 
@@ -74,7 +74,7 @@ Output:
 
 Example:
 
-[![Example][example-screenshot]](https://example.com)
+![Example](public/demo.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -116,9 +116,9 @@ Install the tools below
 * **Settings** <br>
   Install the fine-tuned models above and place in folder named *Models*
   Remember to rename the model name <br>
-  [![Rename Model][rename-model-screenshot]](https://example.com)
+  ![model_structure](public/model_structure.png)
   Install the dataset above and place in folder named *data*
-  [![Rename Dataset][rename-dataset-screenshot]](https://example.com)
+  ![data_structure](public/data_structure.png)
 * **Create env**
   ```
   conda create --name QASystem python=3.10.14
@@ -174,7 +174,7 @@ Run command line
 python main.py
 ```
 Menu
-[![Menu][menu-screenshot]](https://example.com)
+![menu](public/menu.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -259,11 +259,6 @@ Use this space to list resources you find helpful and would like to give credit 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[![FastAPI][FastAPI.com]][FastAPI-url]
-* [![HuggingFace][HuggingFace.co]][HuggingFace-url]
-* [![PyTorch][PyTorch.org]][PyTorch-url]
-* [![MongoDB][MongoDB.com]][MongoDB-url]
-
 [archirecture-screenshot]: public/architecture.png
 [example-screenshot]: public/example.png
 [FastAPI.com]: https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi
