@@ -149,9 +149,7 @@ Example:
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
 ### Fine-tuning
-
 Access to 
 ```ExtractiveQuestionAnsweringSystem/src/app/train```
 to start tuning<br>
@@ -159,9 +157,7 @@ You can change the hyper-parameter as you want in train.py
 ```py
 python train.py
 ```
-
 ### Start demo app
-
 Back to path
 ```
 ExtractiveQuestionAnsweringSystem/
