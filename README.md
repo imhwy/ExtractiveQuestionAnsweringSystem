@@ -93,36 +93,47 @@ Example:
 
 ### Prerequisites
 
-* PyTorch-gpu
-  ```py
-  pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
-  ```
-* MongoDB
-  ```
-  Install mongoDB
-  ```
-* Models
+Install the tools below
+
+* **Python**
+  Version 3.10.14
+* **Anaconda**
+  [Anaconda](https://www.anaconda.com/)
+* **MongoDB**
+  [MongoDB-url](https://www.mongodb.com/)
+* **Models**
   Model | #params | Max length
   ---|---|---
   [`PhucDanh/Bartpho-UITViSQuAD`](https://huggingface.co/PhucDanh/Bartpho-fine-tuning-model-for-question-answering) | 396M | 1024
   [`PhucDanh/Bartpho-UITCourseInfo`](https://huggingface.co/PhucDanh/Bartpho-fine-tuning-on-UIT-Course-information) | 396M | 1024
   [`PhucDanh/ViT5-UITViSQuAD`](https://huggingface.co/PhucDanh/vit5-fine-tuning-for-question-answering) | 226M | 768
   [`PhucDanh/ViT5-UITCourseInfo`](https://huggingface.co/PhucDanh/ViT5-fine-tuning-on-UIT-Course-information) | 226M | 768
+* **Settings** <br>
+  Install the fine-tuned models above and place in folder named *Models*
+  Remember to rename the model name <br>
+  [![Rename][rename-screenshot]](https://example.com)
+* **Create env**
+  ```
+  conda create --name QASystem python=3.10.14
+  ```
+* **Activate env**
+  ```
+  conda activate QASystem
+  ```
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/imhwy/ExtractiveQuestionAnsweringSystem.git
    ```
-3. Install NPM packages
+2. Update pip
+    ```sh
+    pip install --upgrade pip
+    ```
+3. Install requirements
    ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+   pip install -r requirements.txt
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
