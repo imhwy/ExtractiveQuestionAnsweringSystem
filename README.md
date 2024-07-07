@@ -237,7 +237,7 @@ Nguyễn Minh Thư - [gmail](21520472@gm.uit.edu.vn) - 21520472@gm.uit.edu.vn
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
+Resource we utilized for researching
 
 * [mBart](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00343/96484/Multilingual-Denoising-Pre-training-for-Neural)
 * [Bartpho](https://arxiv.org/abs/2109.09701)
