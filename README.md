@@ -29,6 +29,7 @@
 | 3 | Nguyễn Minh Thư | 21520472 |
 
 # Advanced Vietnamese Question Answering System for Specialized Domain Information.
+<a id="readme-top"></a>
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -92,9 +93,6 @@ Example:
 ## Getting Started
 
 ### Prerequisites
-
-Install the tools below
-
 * **Python**
   Version 3.10.14
 * **Anaconda**
@@ -116,8 +114,8 @@ Install the tools below
 * **Settings** <br>
   Install the fine-tuned models above and place in folder named *Models*
   Remember to rename the model name <br>
-  ![model_structure](public/model_structure.png)
-  Install the dataset above and place in folder named *data*
+  ![model_structure](public/model_structure.png)<br>
+  Install the dataset above and place in folder named *data*<br>
   ![data_structure](public/data_structure.png)
 * **Create env**
   ```
@@ -129,7 +127,6 @@ Install the tools below
   ```
 
 ### Installation
-
 1. Clone the repo
    ```sh
    git clone https://github.com/imhwy/ExtractiveQuestionAnsweringSystem.git
