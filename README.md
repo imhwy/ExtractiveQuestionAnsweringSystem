@@ -14,9 +14,9 @@
 * **Year:** HK2 (2023 - 2024)
 
 ## LECTURER
-* **TS.Nguyễn Trọng Chỉnh** - *chinhnt@uit.edu.vn*
-* **THS. Đặng Văn Thìn** - *thindv@uit.edu.vn*
-* **Nguyễn Đức Vũ** - *vund@uit.edu.vn*
+* **PhD. Nguyễn Trọng Chỉnh** - *chinhnt@uit.edu.vn*
+* **MSc. Đặng Văn Thìn** - *thindv@uit.edu.vn*
+* **MSc. Nguyễn Đức Vũ** - *vund@uit.edu.vn*
 
 ## PROJECT
 - **Name**: Advanced Vietnamese Question Answering System for Specialized Domain Information.
@@ -255,7 +255,7 @@ Resource we utilized for researching
 [archirecture-screenshot]: public/architecture.png
 [example-screenshot]: public/example.png
 [FastAPI.com]: https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi
-[FastAPI-url]: [https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi](https://fastapi.tiangolo.com/)
+[FastAPI-url]: https://fastapi.tiangolo.com/
 [HuggingFace.co]: https://img.shields.io/badge/Hugging%20Face-FFD21E?logo=huggingface&logoColor=000
 [HuggingFace-url]: https://huggingface.co/
 [PyTorch.org]: https://img.shields.io/badge/-PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white
