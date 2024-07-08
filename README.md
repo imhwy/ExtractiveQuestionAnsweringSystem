@@ -102,8 +102,8 @@ Example:
 * **Data**
   Name | Data 
   ---|---
-  UIT-ViSQuAD | [UIT-ViSQuAD](https://huggingface.co/datasets/taidng/UIT-ViQuAD2.0)
-  UIT-CourseInfo | [UIT-CourseInfo](https://huggingface.co/datasets/PhucDanh/UIT-CourseInfo)
+  UIT-ViSQuAD | [`UIT-ViSQuAD`](https://huggingface.co/datasets/taidng/UIT-ViQuAD2.0)
+  UIT-CourseInfo | [`UIT-CourseInfo`](https://huggingface.co/datasets/PhucDanh/UIT-CourseInfo)
 * **Models**
   Model | #params | Max length
   ---|---|---
